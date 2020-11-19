@@ -39,6 +39,7 @@ class DeviseCreateCustomers < ActiveRecord::Migration[5.2]
       t.string :postal_code, null: false, default: ""
       t.string :street_address, null: false, default: ""
       t.string :phone_num, null: false, default: ""
+      t.string :profile_image_id
       t.boolean :is_deleted, default: false
       t.timestamps null: false
     end

@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 2020_11_18_124341) do
     t.string "postal_code", default: "", null: false
     t.string "street_address", default: "", null: false
     t.string "phone_num", default: "", null: false
+    t.string "profile_image_id"
     t.boolean "is_deleted", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -84,7 +85,7 @@ ActiveRecord::Schema.define(version: 2020_11_18_124341) do
   end
 
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "genre_id", null: false
+    t.integer "genre_id"
     t.string "name", null: false
     t.text "introduction", null: false
     t.integer "price", null: false
