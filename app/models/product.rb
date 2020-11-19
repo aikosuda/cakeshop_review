@@ -4,4 +4,10 @@ class Product < ApplicationRecord
 	has_many :order_details, dependent: :destroy
 
 	attachment :image
+
+	validates :name, presence: true
+	validates :introduction, presence: true
+	validates :price, presence: true, numericality: true
+	validates :is_active, inclusion: {in: [true, false]}
+	
 end
