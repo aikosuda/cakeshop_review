@@ -1,2 +1,17 @@
-<h1>Admins::Genres#edit</h1>
-<p>Find me in app/views/admins/genres/edit.html.erb</p>
+<div class="container">
+	<div class="row">
+		<div class="text-center">
+			<h3>ジャンル編集</h3>
+			<%= form_for @genre, url: admins_genre_path do |f| %>
+				<%= f.label :name, "ジャンル" %>
+				<%= f.text_field :name %>
+				<%= f.radio_button :is_active, true, :checked => true %>有効
+				<%= f.radio_button :is_active, false %>無効
+				<div>
+					<%= f.submit '変更を保存する', class: "btn btn-primary" %>
+					<%= link_to "変更を保存せず戻る", admins_genres_path, class: "btn btn-danger" %>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>
