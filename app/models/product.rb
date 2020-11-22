@@ -9,5 +9,11 @@ class Product < ApplicationRecord
 	validates :introduction, presence: true
 	validates :price, presence: true, numericality: true
 	validates :is_active, inclusion: {in: [true, false]}
+
+	#消費税込みにする
+	def syouhizei(price)
+		@price = price * 1.08
+		@price.round
+	end
 	
 end

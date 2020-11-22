@@ -1,2 +1,38 @@
-<h1>Admins::Products#show</h1>
-<p>Find me in app/views/admins/products/show.html.erb</p>
+<div class="container main-content">
+	<div class="row">
+		<div class="text-center">
+			<h3>商品詳細</h3>
+		</div>
+		<div class="col-sm-4">
+			<div>
+				<%= attachment_image_tag @product, :image, size: '300x250', fallback: "no_image.png",size:'300x250' %>
+			</div>
+		</div>
+		<div class="col-sm-8">
+			<div>
+				<h6>商品名</h6>
+				<%= @product.name %>
+			</div>
+			<div>
+				<h6>商品説明</h6>
+				<%= @product.introduction %>
+			</div>
+			<div>
+				<h6>ジャンル</h6>
+				<%= @product.genre.name %>
+			</div>
+			<div>
+				<h6>税込金額(税抜金額)</h6>
+				<%= @product.syouhizei(@product.price).to_s(:delimited) %>(<%= @product.price.to_s(:delimited) %>) 円
+			</div>
+			<div>
+				<h6>販売ステータス</h6>
+				<% if @product.is_active == true %>
+					販売中
+				<% else %>
+					販売停止中
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
