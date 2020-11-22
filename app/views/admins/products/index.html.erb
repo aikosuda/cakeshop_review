@@ -1,2 +1,38 @@
-<h1>Admins::Products#index</h1>
-<p>Find me in app/views/admins/products/index.html.erb</p>
+<div class="container main-content">
+	<div class="row">
+		<div class="col-sm-8 col-sm-offset-2">
+			<div class="text-center">
+				<h4>商品一覧</h4>
+			</div>
+			<div class="text-right">
+				<%= link_to "登録", new_admins_product_path, class: "btn btn-warning" %>
+			</div>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>商品ID</th>
+						<th>商品名</th>
+						<th>税抜価格</th>
+						<th>ジャンル</th>
+						<th>ステータス</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @products.each do |product| %>
+						<tr>
+							<td><%= product.id %></td>
+							<td><%= product.name %></td>
+							<td><%= product.price.to_s(:delimited) %>円</td>
+							<td><%= product.genre.name %></td>
+							<% if product.is_active == true %>
+								<td>販売中</td>
+							<% else %>
+								<td>販売停止中</td>
+							<% end %>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
