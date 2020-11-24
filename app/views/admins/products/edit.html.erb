@@ -3,7 +3,7 @@
 		<div class="text-center">
 			<h3>商品編集</h3>
 		</div>
-		<%= form_for(@product, url: admins_products_path) do |f| %>
+		<%= form_for(@product, url: admins_product_path) do |f| %>
 			<div class="col-sm-4">
 				<div class="product-img">
 					<%= attachment_image_tag @product, :image, size: '300x250', id: "file-preview", fallback: "no_image.png",size:'300x250' %>
