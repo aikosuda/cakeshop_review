@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'genres/show'
   # メインページルーティング
   root 'home#top'
   get 'home/about' => 'home#about'
