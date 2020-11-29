@@ -1,2 +1,42 @@
-<h1>Admins::Customers#show</h1>
-<p>Find me in app/views/admins/customers/show.html.erb</p>
+<div class="container main-content">
+	<div class="row">
+		<div class="text-center">
+			<h3><%= @customer.first_name %><%= @customer.last_name %>さんの会員詳細</h3>
+		</div>
+		<div class="col-sm-10 col-offset-sm-1">
+			<div>
+				<h6>顧客ID</h6>
+				<%= @customer.id %>
+				<% if @customer.is_deleted == true %>
+					<span class="btn btn-default">有効会員</span>
+				<% else %>
+					<span class="btn btn-default">退会済</span>
+				<% end %>
+			</div>
+			<div>
+				<h6>氏名</h6>
+				<%= @customer.first_name %><%= @customer.last_name %>
+			</div>
+			<div>
+				<h6>フリガナ</h6>
+				<%= @customer.first_name_kana %><%= @customer.last_name_kana %>
+			</div>
+			<div>
+				<h6>郵便番号</h6>
+				<%= @customer.postal_code %>
+			</div>
+			<div>
+				<h6>住所</h6>
+				<%= @customer.street_address %>
+			</div>
+			<div>
+				<h6>メールアドレス</h6>
+				<%= @customer.email %>
+			</div>
+			<div>
+				<%= link_to "編集する", edit_admins_customer_path, class: "btn btn-danger" %>
+				<%= link_to "注文履歴一覧を見る", admins_orders_path, class: "btn btn-danger" %>
+			</div>
+		</div>
+	</div>
+</div>
